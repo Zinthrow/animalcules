@@ -168,7 +168,7 @@ relabu_barplot <- function(MAE,
                     type = 'bar',
                     textposition= 'outside',
                     orientation = 'h',
-                    colors = rainbow(40),
+                    marker = list(color = rainbow),
                     name = substr(colnames(relabu_table)[1], 1, 40)) %>%
                     layout(font = list(size = 10),
                         xaxis = list(title = 'Relative Abundance',
