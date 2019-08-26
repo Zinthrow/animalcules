@@ -161,8 +161,8 @@ relabu_barplot <- function(MAE,
 
     # Plotly | Stacked Bar Plots
     relabu_table$samples <- rownames(relabu_table)
-    pal = hcl.colors(ncol(relabu_table), palette = "viridis",alpha = .5)
-    pal = sample(pal)
+    pal <- hcl.colors(ncol(relabu_table), palette = "viridis",alpha = .6)
+    pal <- sample(pal)
     sbp <- plotly::plot_ly(relabu_table,
                     y = ~samples,
                     x = relabu_table[[colnames(relabu_table)[1]]],
