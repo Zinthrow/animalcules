@@ -161,15 +161,15 @@ relabu_barplot <- function(MAE,
 
     # Plotly | Stacked Bar Plots
     relabu_table$samples <- rownames(relabu_table)
-
+    pal = hcl.colors(ncol(tphylum), palette = "viridis",alpha = .5)
+    pal = sample(pal)
     sbp <- plotly::plot_ly(relabu_table,
                     y = ~samples,
                     x = relabu_table[[colnames(relabu_table)[1]]],
                     type = 'bar',
                     textposition= 'outside',
                     orientation = 'h',
-                    color = relabu_table[[colnames(relabu_table)[1]]],
-                    colors = 'YlGnBu',
+                    marker = list(color= pal[1])
                     name = substr(colnames(relabu_table)[1], 1, 40)) %>%
                     layout(font = list(size = 10),
                         xaxis = list(title = 'Relative Abundance',
@@ -186,6 +186,7 @@ relabu_barplot <- function(MAE,
     for (i in 2:(ncol(relabu_table)-1)) {
         sbp <- 
         add_trace(sbp, x=relabu_table[[colnames(relabu_table)[i]]], 
+            marker = list(color=pal[i]),
             name=substr(colnames(relabu_table)[i], 1, 40))
     }
 
