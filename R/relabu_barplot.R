@@ -161,7 +161,7 @@ relabu_barplot <- function(MAE,
 
     # Plotly | Stacked Bar Plots
     relabu_table$samples <- rownames(relabu_table)
-    pal <- rainbow(ncol(tphylum),s = .7,alpha = .8, v = .75)
+    pal <- rainbow(nrow(relabu_table),s = .7,alpha = .8, v = .75)
     pal = sample(pal)
     sbp <- plotly::plot_ly(relabu_table,
                     y = ~samples,
